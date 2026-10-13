@@ -1,0 +1,18 @@
+[
+ {"_id":"trail-01","title":"Rain shell","text":"A waterproof hooded jacket for rainy hikes. Packs into its pocket and blocks wind.","category":"outdoors","region":"north","price":79},
+ {"_id":"trail-02","title":"Trail water filter","text":"A compact filter that makes stream water drinkable during a hiking trip. No electricity needed.","category":"outdoors","region":"north","price":39},
+ {"_id":"trail-03","title":"Sleeping quilt","text":"An insulated quilt for sleeping outdoors on cool nights. Lightweight backpacking bedding.","category":"outdoors","region":"south","price":129},
+ {"_id":"trail-04","title":"Camp lantern","text":"A rechargeable lamp that lights a campsite after sunset. Warm light and a hanging hook.","category":"outdoors","region":"south","price":35},
+ {"_id":"desk-01","title":"Quiet keyboard","text":"A low-noise keyboard for shared offices and late-night typing. Soft keys and a compact layout.","category":"office","region":"north","price":65},
+ {"_id":"desk-02","title":"Desk riser","text":"A platform that lifts a computer display to eye level. Space underneath for notebooks.","category":"office","region":"south","price":45},
+ {"_id":"desk-03","title":"Focus headphones","text":"Over-ear headphones reduce background noise during work calls and focused reading.","category":"office","region":"north","price":99},
+ {"_id":"desk-04","title":"Task lamp","text":"An adjustable desk lamp illuminates paper and books without lighting the whole room.","category":"office","region":"south","price":29},
+ {"_id":"cook-01","title":"Insulated lunch jar","text":"A sealed insulated container keeps soup hot until lunch. Wide mouth for easy cleaning.","category":"kitchen","region":"north","price":25},
+ {"_id":"cook-02","title":"Coffee hand grinder","text":"A manual burr grinder for fresh coffee beans. Turn the handle to choose a coarse or fine grind.","category":"kitchen","region":"south","price":49},
+ {"_id":"cook-03","title":"Kitchen scale","text":"A digital scale measures flour and ingredients by weight for precise baking. Grams and ounces.","category":"kitchen","region":"north","price":22},
+ {"_id":"cook-04","title":"Tea infuser","text":"A reusable metal basket holds loose tea leaves while they steep in a mug of hot water.","category":"kitchen","region":"south","price":12},
+ {"_id":"travel-01","title":"Packing cubes","text":"Zipped fabric organizers separate clothing inside a suitcase. Three sizes for tidy travel.","category":"travel","region":"north","price":24},
+ {"_id":"travel-02","title":"Neck pillow","text":"A soft travel pillow supports the head while resting in an airplane or train seat.","category":"travel","region":"south","price":19},
+ {"_id":"travel-03","title":"Pocket power bank","text":"A rechargeable portable battery charges a phone away from wall outlets. USB-C connection.","category":"travel","region":"north","price":32},
+ {"_id":"travel-04","title":"Luggage tag","text":"A durable identification tag helps identify a suitcase. Includes a covered name and contact card.","category":"travel","region":"south","price":8}
+]

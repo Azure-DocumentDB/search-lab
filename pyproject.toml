@@ -1,0 +1,21 @@
+[project]
+name = "managed-documentdb-search-lab"
+version = "0.1.0"
+description = "An honest retrieval and evaluation lab for managed Azure DocumentDB"
+requires-python = ">=3.12,<3.13"
+dependencies = ["fastapi>=0.119", "uvicorn>=0.38", "pymongo>=4.18", "azure-identity>=1.25", "httpx>=0.28", "certifi>=2026.7.22"]
+
+[dependency-groups]
+dev = ["pytest>=8.4", "pip-audit>=2.9", "ruff>=0.14"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.uv]
+package = false
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
