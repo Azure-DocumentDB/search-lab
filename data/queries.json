@@ -1,0 +1,10 @@
+[
+ {"id":"q1","text":"Something to keep me dry while walking in the rain","relevant":["trail-01"],"note":"Synthetic single-relevance label: weather protection."},
+ {"id":"q2","text":"How can I recharge my phone on a long train ride?","relevant":["travel-03"],"note":"Synthetic single-relevance label: portable charging."},
+ {"id":"q3","text":"I need to weigh flour for baking bread","relevant":["cook-03"],"note":"Synthetic single-relevance label: measuring ingredients."},
+ {"id":"q4","text":"A light for reading at my desk","relevant":["desk-04"],"note":"Synthetic single-relevance label: local desk illumination."},
+ {"id":"q5","text":"quiet work without distracting noise","relevant":["desk-01","desk-03"],"note":"Synthetic multiple-relevance label: reduce office noise."},
+ {"id":"q6","text":"hot soup for lunch","relevant":["cook-01"],"note":"Synthetic single-relevance label: insulated food storage."},
+ {"id":"q7","text":"Prescription antibiotics for an infection","relevant":[],"note":"Explicit no-answer: catalog contains no medicine."},
+ {"id":"q8","text":"A replacement engine for a cargo ship","relevant":[],"note":"Explicit no-answer: catalog contains no industrial engines."}
+]
