@@ -1,9 +1,44 @@
 # Verification record — 2026-10-13
 
 **Real browser: PASSED for the operator-local application against managed Azure.**
-**Release status: HOLD for final operator review and owned-resource cleanup.**
+**Independent final review: PASSED for public source release.**
 **Cloud application hosting: NOT VERIFIED.** No public-hosting or production
-benchmark claim follows from these tests.
+benchmark claim follows from these tests. Temporary Azure resource cleanup is
+separately operator-owned; verified deletion is not claimed by this record.
+
+## Independent final release review
+
+Reviewed documentation head `6c2bbe41d6f50a696503ce16ecbfac9941bd272b`, the
+complete backend/UI source and tests, prior independent review, real seed/repeat
+and Azure deployment evidence, comprehensive browser observations, and all six
+retained screenshots. Application source is byte-identical to the live-tested
+`b60d88b94365c9266472f522a2fc7f46eba96652` (and runtime implementation
+`c728d3fb23a1356ca12f4e275892b23184559fad`); subsequent changes are docs only.
+No blocking defect was demonstrated within the documented operator-local scope.
+
+Fresh independent verification with Python 3.12.13 / Node 24.21.0:
+
+- New environment, `uv sync --frozen`; both requirements exports match `uv.lock`.
+- **50 Python tests + 4 DOM tests passed**, ruff and whitespace checks passed.
+- Python bytecode compilation and JavaScript syntax check passed. This source-run
+  application declares `package = false`; no distributable package or cloud
+  deployment build is claimed.
+- Fresh advisory audits: **30 runtime / 57 development packages, zero known
+  vulnerabilities**. One existing Starlette/httpx TestClient deprecation warning.
+- Gitleaks 8.30.1: tracked source, all four existing commits and both existing
+  Actions run logs scanned with **zero findings**. Secret scanning is not proof
+  that every possible secret is detectable; exact release-head checks and later
+  run logs are verified separately during publication.
+- Screenshot SHA-256 manifest and browser static-file hashes matched; exact
+  repeat and final ledger/cache snapshots matched. The historical eight-case
+  CLI result was checked separately, without relabeling it as current data.
+
+This review made **no Azure, database, browser or model calls**, read no service
+credentials and did not change runtime code or weaken verification gates. The
+previous managed-service/model/browser blockers are resolved by retained real
+execution evidence. Optional hosting and cleanup are distinct from public source
+availability; merge/visibility/anonymous-clone proof is recorded by the release
+operator rather than predicted here.
 
 ## Current real-browser proof
 
@@ -121,8 +156,9 @@ Sanitized evidence retained in the operator's `search-final-2026-10-13` workspac
 screenshots, `browser-offline-checks.log`, and the separate seed/deployment
 proofs. No credentials or raw vectors are included. Browser proof closes the
 previous browser and current-run model/seed-provenance gaps, **not** optional
-cloud-hosting or cleanup gates. Publication and deletion verification remain
-operator-controlled; no resources were deleted by the browser verifier.
+cloud-hosting or cleanup gates. Final independent review above accepts the
+public-source release boundary; deletion verification remains operator-owned.
+No resources were deleted by the browser verifier.
 
 ---
 
