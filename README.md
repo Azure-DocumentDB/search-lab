@@ -10,6 +10,15 @@ and sanitized query/index settings. Evaluate eight explicitly labeled synthetic
 queries using label recall@K, an independent brute-force cosine reference, and
 repeated actual managed-service request latency.
 
+## Verification status — private review, not release-ready
+
+[Exact tested revision, measured results and limitations](TESTED.md): **50 Python
+and 4 DOM tests passed**, plus actual managed Azure eight-case evaluation, local
+HTTP and safety probes. **Real browser: NOT VERIFIED** (navigation policy blocked);
+cloud application hosting is not verified. The persisted embedding ledger records
+**2 attempted requests under cap 5**, and new paid generation is now disabled.
+CLI/API results do not prove rendered UI behavior; publication remains on hold.
+
 ## What this teaches (and doesn't)
 
 - **Keyword:** managed Mongo query with escaped token regex, then application
