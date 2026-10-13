@@ -10,14 +10,19 @@ and sanitized query/index settings. Evaluate eight explicitly labeled synthetic
 queries using label recall@K, an independent brute-force cosine reference, and
 repeated actual managed-service request latency.
 
-## Verification status — private review, not release-ready
+## Verification status — real browser passed; final operator review pending
 
-[Exact tested revision, measured results and limitations](TESTED.md): **50 Python
-and 4 DOM tests passed**, plus actual managed Azure eight-case evaluation, local
-HTTP and safety probes. **Real browser: NOT VERIFIED** (navigation policy blocked);
-cloud application hosting is not verified. The persisted embedding ledger records
-**2 attempted requests under cap 5**, and new paid generation is now disabled.
-CLI/API results do not prove rendered UI behavior; publication remains on hold.
+[Exact revisions, measured results and limitations](TESTED.md): **50 Python
+and 4 DOM tests passed again**, plus a real managed-Azure **8/8 UI evaluation**,
+source/filter/RRF interactions, desktop and 390px layout, keyboard smoke test,
+and genuine success-then-503 stale-result clearing in supported Chromium.
+Current-account seed/model provenance is retained: **text-embedding-3-small v1**,
+fresh 16-record insert, and a UI custom query proving ledger **1→2** / cache
+**24→25**, followed by identical-query reuse with unchanged hashes. The fresh
+**cap of 2 is exhausted**; historical two attempts are distinct (four overall).
+**Cloud application hosting remains unverified.** This is an operator-local app
+against managed Azure; publication and cleanup verification remain on hold for
+final operator review. No all-gates-pass or production-benchmark claim is made.
 
 ## What this teaches (and doesn't)
 

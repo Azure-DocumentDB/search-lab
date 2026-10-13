@@ -1,4 +1,137 @@
-# Verification record — 2026-10-12
+# Verification record — 2026-10-13
+
+**Real browser: PASSED for the operator-local application against managed Azure.**
+**Release status: HOLD for final operator review and owned-resource cleanup.**
+**Cloud application hosting: NOT VERIFIED.** No public-hosting or production
+benchmark claim follows from these tests.
+
+## Current real-browser proof
+
+- Application source: `b60d88b94365c9266472f522a2fc7f46eba96652`, unchanged
+  throughout the run. Changes after it in this record are documentation only.
+- Supported OpenClaw-managed Chromium, loopback `127.0.0.1:8765`,
+  2026-10-13 **14:10–14:15 UTC / 07:10–07:15 PDT**. No navigation-policy bypass,
+  mocked request, static-result replacement, or alternate tab was used.
+- Fresh dedicated 16-record namespace on the actual shared managed M30. The
+  retained seed proof now captures **16 inserted / 0 existing**, then repeated
+  insert-only seed **0 inserted / 16 existing** with unchanged cache/ledger.
+- Separate retained ARM proof verifies **text-embedding-3-small, version 1**,
+  1536 dimensions, Standard capacity 1. This is control-plane evidence, not an
+  inference from the declared environment or successful API response.
+
+### One new custom embedding, then identical cache reuse
+
+At 14:10:31Z, submitted once through the UI:
+
+> A small battery pack for charging my phone outdoors
+
+The real request returned **200** and Pocket power bank (`travel-03`) ranked
+first. Sanitized state reads prove the current-account durable ledger **1 → 2**
+and cache **24 → 25 vectors**, under **cap 2**. At 14:10:40Z, submitting the
+**exact same text** returned 200 again with the entire cache and ledger hashes
+unchanged. No retry, state reset, or cap increase occurred.
+
+Current-account post-query SHA-256 values:
+
+```text
+ledger: 50d9e8f94284703c82212bc39283488113c4f9e3f92cfbbf2c653a3eb1a031a4
+cache:  5d70a7cd18475269569baca8ffb6c7110f33ef3be48d46f0bffe0354f7031acf
+```
+
+That account's two requests are **one seed batch + one custom query**. The
+historical account's two attempts remain distinct, preserved evidence; overall
+historical + current attempts total **4**. New paid consent was enabled for this
+bounded current proof, but the durable cap was exhausted. Cached presets and
+all evaluation cases still worked without a new embedding request. A cap is
+not a token or dollar budget.
+
+### Rendered UI, metadata, keyboard and narrow viewport
+
+- Keyword and vector cards rendered; selecting **Include application RRF**
+  revealed distinct fused results with constant 60 and the explicit
+  **not native hybrid** label. Rank scores retained **not confidence** labels.
+- Source button displayed `travel-03`, self-authored synthetic catalog, **MIT**.
+- Exact **travel + north**, K=5, returned only Pocket power bank and Packing
+  cubes in all three modes. The inspector showed those exact postfilters,
+  IVF/COS/1536/numLists=1 and 16 candidates, without endpoint, credentials or
+  raw vectors. Selecting the rain preset fetched live results at K=3.
+- Desktop **1200×840** and narrow **390×844** rendered without horizontal
+  document overflow (scroll widths exactly 1200 and 390). Mobile is a narrow
+  Chromium viewport check, **not** physical-device certification.
+- Five actual Tab presses from the query reached Compare results with visible
+  **3px orange focus outline**; Enter successfully submitted the cached preset.
+  This is a keyboard smoke test, not a full accessibility audit.
+
+### Actual UI evaluation: 8/8
+
+Clicked **Run bounded evaluation**. Eight real `/api/evaluate-case` requests
+returned 200; progress reached **8/8**, eight case cards rendered, and the UI
+reported measured service requests, no generated timings. K=3, three warm
+samples per method, one separately displayed first-observed request: **64
+managed retrieval requests**, no new model call.
+
+Observed label recall@3 in keyword / vector / application RRF order:
+
+- q1: **0 / 1 / 1**; q2 and q3: **1 / 1 / 1**.
+- q4: **0 / 1 / 0** — RRF regression remains visible, not hidden.
+- q5 and q6: **1 / 1 / 1**.
+- q7 and q8: **undefined label recall**, with **3 returned results per method**.
+  The UI explicitly labels both no-answer cases; it does **not** abstain.
+- Vector/exhaustive-cosine recall@3 was **1.0 for all eight**.
+
+Visible per-case warm medians ranged **13.0–23.0 ms keyword** and
+**36.1–43.2 ms vector**; visible p95 ranges were **16.2–34.2 ms** and
+**37.8–43.4 ms**, respectively. These are rounded UI values and ranges of
+case summaries, not pooled percentiles. First-observed timing is excluded;
+p95 at n=3 is the maximum; server cache/cold state is unknown. Timing excludes
+embeddings/readiness. The 16-record one-list dataset remains a tiny correctness
+exercise, not a scalable ANN or production relevance benchmark.
+
+### Genuine success → capped failure
+
+With nine successful result cards, selected source and populated inspector,
+submitted a **different uncached query after the cap was exhausted**. The actual
+backend returned **503** at 14:13:42Z with the persistent-cap explanation.
+All keyword/vector/RRF cards cleared, the source panel became `display:none`
+with zero rendered rectangles, and the inspector read **No successful request
+to inspect.** The UI stated no static or stale results were displayed.
+The hidden source DOM node retains its old text; it is not displayed or present
+in the visible page text. Prior completed evaluation stays separately labeled.
+Ledger/cache remained byte-identical; no third provider attempt occurred.
+
+### Negative API and browser diagnostics
+
+Same-origin browser fetch probes rejected category operator object, unknown
+category casing, region operator object, unknown region casing, unsupported
+HNSW and K=0 with **422**. They used the cached text and added no model call.
+The current-run network log contained only loopback requests: successful assets,
+five successful searches, eight successful evaluation cases, the intentional
+503 and six intentional 422s. **Zero page exceptions**; console contained only
+those seven expected HTTP resource-error entries, no unexpected failures.
+
+### Offline rerun and evidence boundary
+
+Reran **50 Python tests + 4 DOM tests**, ruff and whitespace checks successfully.
+One existing Starlette/httpx TestClient deprecation warning remains. No app
+source fix was required. Offline tests still use doubles and are not the basis
+for the rendered/live-service claims above.
+
+Sanitized evidence retained in the operator's `search-final-2026-10-13` workspace:
+`browser-evidence.json`, five `browser-state-*.json` snapshots, six rendered
+screenshots, `browser-offline-checks.log`, and the separate seed/deployment
+proofs. No credentials or raw vectors are included. Browser proof closes the
+previous browser and current-run model/seed-provenance gaps, **not** optional
+cloud-hosting or cleanup gates. Publication and deletion verification remain
+operator-controlled; no resources were deleted by the browser verifier.
+
+---
+
+# Historical verification record — 2026-10-12
+
+The following is preserved historical evidence, **not current status**. Its
+browser/model/seed gaps were closed by the separate 2026-10-13 proof above;
+its older account ledger and timings must not be relabeled as current-run data.
+
 
 **Release status: HOLD. Private review only; not an all-gates-pass release.**
 Real managed Azure evaluation, local HTTP and safety probes passed.
